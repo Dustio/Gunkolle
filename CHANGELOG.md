@@ -1,3 +1,9 @@
+#### LDPlayer 0.7.3
+* **_New_** Using the latest client apk.
+* **_New_** Lots of pics replaced, some dolls need to be re-added.
+* **_New_** New method for repairing, need to implement for every map where dolls are damaged. Currently in 0_2, 4_3E, 10_4E. Not tested much.
+* **_New_** Login popup not working.
+* **_Bugfix_** Clicking terminate too much resulted in game disconnecting.
 
 #### LDPlayer 0.7.2.1
 * **_Bugfix_** Looking for pause fix on 4_6.
