@@ -64,7 +64,7 @@ Gui, Add, Text,, MinWait:
 Gui, Add, Text,, MaxWait:
 Gui, Add, Edit, r1 w20 vNB ReadOnly
 GuiControl, Move, NB, x10 w300 y80
-Gui, Add, DDL, x40 w70 ym-3 vWorldV, 0_2|4_6_data|4_3E|5_4_friendly|8_1N|8_1N_airstrike|10_4E|10_4Ecdo
+Gui, Add, DDL, x40 w70 ym-3 vWorldV, 0_2|4_6_data|4_3E|5_4_friendly|8_1N|8_1N_airstrike|10_4E|10_4Ecdo|EmptyHouse
 GuiControl, ChooseString, WorldV, %WorldV%
 ; Gui, Add, Edit, gWorldF r2 limit3 w10 vWorldV -VScroll ym, %World%ClickS(706, 425)
 ; GuiControl, Move, WorldV, x37 h17 w15
@@ -279,15 +279,11 @@ Transition(ClickThis,WaitForThis)
 		{
 			Counter = 0
 			GuiControl,, NB, Expedition Found
-			FoundLoginCollectNotice := FindClick(A_ScriptDir "\pics\LoginCollectNotice", "rLDPlayer mc o40 Count1 n0 w500")
+			FoundLoginCollectNotice := FindClick(A_ScriptDir "\pics\Login01", "rLDPlayer mc o40 Count1 n0 w500")
 			if (FoundLoginCollectNotice == true)
 			{
 				GuiControl,, NB, Login Collect Found
-				TFindClick("LoginCollectNotice","LoginCollectNotice2")
-				sleep 1000
-				RFindClick("LoginCollectNotice2", "rLDPlayer mc o50 w30000,50")
-				sleep 500
-				Found2Backup := FindClick(A_ScriptDir "\pics\LoginCollectNotice2", "rLDPlayer mc o40 Count1 n1")
+				RFindClick("Login02", "rLDPlayer mc o50 w30000,50")
 				sleep 5000
 				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
 				if (FoundDrop == true)
@@ -295,9 +291,14 @@ Transition(ClickThis,WaitForThis)
 						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
 					}
 				sleep 250
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
 				sleep 500
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login03", "rLDPlayer mc o40 Count1 n1")
 				sleep 5000
 				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
 				if (FoundDrop == true)
@@ -305,11 +306,71 @@ Transition(ClickThis,WaitForThis)
 						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
 					}
 				sleep 250
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
 				sleep 500
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				TFindClick("Login03","Login04")
 				sleep 500
-				RFindClick("LoginCollectNotice4", "rLDPlayer mc o30 w30000,50")
+				TFindClick("Login04","Login05")
+				sleep 500
+				RFindClick("Login05", "rLDPlayer mc o50 w30000,50")
+			}
+			FoundLoginCollectNotice2 := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0 w500")
+			if (FoundLoginCollectNotice2 == true)
+			{
+				GuiControl,, NB, Login Collect Found
+				RFindClick("DollDrop", "rLDPlayer mc o50 w30000,50")
+				sleep 250
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
+				sleep 5000
+				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
+				if (FoundDrop == true)
+					{
+						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
+					}
+				sleep 500
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login03", "rLDPlayer mc o40 Count1 n1")
+				sleep 5000
+				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
+				if (FoundDrop == true)
+					{
+						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
+					}
+				sleep 250
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
+				sleep 500
+				TFindClick("Login03","Login04")
+				sleep 500
+				TFindClick("Login04","Login05")
+				sleep 500
+				RFindClick("Login05", "rLDPlayer mc o50 w30000,50")
 			}
 			FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0")
 				if (FoundAchievement == true)
@@ -634,6 +695,7 @@ ReplaceDPS(exhaustedDoll, loadedDoll, resetFilter:=False)
 	{
 		RFindClick("4STAR", "rLDPlayer mc o50 w10000,50") ;go to formation 
 	}
+	sleep 250
 	RFindClick("Filter"WeaponType, "rLDPlayer mc o50 w30000,50")	
 	RFindClick("Confirm", "rLDPlayer mc o50 w30000,50")
 	sleep 200
@@ -768,7 +830,8 @@ Sortie2:
 			FoundHome := FindClick(A_ScriptDir "\pics\FoundHome", "rLDPlayer mc o40 Count1 n0 w500")
 			FoundExpedition := FindClick(A_ScriptDir "\pics\ExpeditionArrive", "rLDPlayer mc o40 Count1 n0 w500")
 ;			FoundAutoBattle := FindClick(A_ScriptDir "\pics\AutoBattle", "rLDPlayer mc o40 Count1 n0 w500")
-			FoundLoginCollectNotice := FindClick(A_ScriptDir "\pics\LoginCollectNotice", "rLDPlayer mc o40 Count1 n0")
+			FoundLoginCollectNotice := FindClick(A_ScriptDir "\pics\Login01", "rLDPlayer mc o40 Count1 n0")
+			FoundLoginCollectNotice2 := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
 			FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0")
 			FoundClose := FindClick(A_ScriptDir "\pics\LostConnection", "rLDPlayer mc o40 Count1 n0")
 			if (FoundHome == true)
@@ -816,11 +879,7 @@ Sortie2:
 			else if (FoundLoginCollectNotice == true)
 			{
 				GuiControl,, NB, Login Collect Found
-				TFindClick("LoginCollectNotice","LoginCollectNotice2")
-				sleep 1000
-				RFindClick("LoginCollectNotice2", "rLDPlayer mc o50 w30000,50")
-				sleep 500
-				Found2Backup := FindClick(A_ScriptDir "\pics\LoginCollectNotice2", "rLDPlayer mc o40 Count1 n1")
+				RFindClick("Login02", "rLDPlayer mc o50 w30000,50")
 				sleep 5000
 				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
 				if (FoundDrop == true)
@@ -828,9 +887,14 @@ Sortie2:
 						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
 					}
 				sleep 250
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
 				sleep 500
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login03", "rLDPlayer mc o40 Count1 n1")
 				sleep 5000
 				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
 				if (FoundDrop == true)
@@ -838,11 +902,71 @@ Sortie2:
 						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
 					}
 				sleep 250
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
 				sleep 500
-				FoundCollect := FindClick(A_ScriptDir "\pics\LoginCollectNotice3", "rLDPlayer mc o40 Count1 n1")
+				TFindClick("Login03","Login04")
 				sleep 500
-				RFindClick("LoginCollectNotice4", "rLDPlayer mc o30 w30000,50")
+				TFindClick("Login04","Login05")
+				sleep 500
+				RFindClick("Login05", "rLDPlayer mc o50 w30000,50")
+				loopcount++
+			}
+			else if (FoundLoginCollectNotice2 == true)
+			{
+				GuiControl,, NB, Login Collect Found
+				RFindClick("DollDrop", "rLDPlayer mc o50 w30000,50")
+				sleep 250
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
+				sleep 5000
+				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
+				if (FoundDrop == true)
+					{
+						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
+					}
+				sleep 500
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login03", "rLDPlayer mc o40 Count1 n1")
+				sleep 5000
+				FoundDrop := FindClick(A_ScriptDir "\pics\DollDrop", "rLDPlayer mc o40 Count1 n0")
+				if (FoundDrop == true)
+					{
+						ClickTilGone("DollDrop", "rLDPlayer mc o10 w30000,50 ")
+					}
+				sleep 250
+				FoundAchievement := FindClick(A_ScriptDir "\pics\Achievement", "rLDPlayer mc o40 Count1 n0 w500")
+				if (FoundAchievement == true)
+				{
+					GuiControl,, NB, Achievement Found
+					ClickS(130, 300)
+				}
+				sleep 250
+				FoundCollect := FindClick(A_ScriptDir "\pics\Login02", "rLDPlayer mc o40 Count1 n1")
+				sleep 500
+				TFindClick("Login03","Login04")
+				sleep 500
+				TFindClick("Login04","Login05")
+				sleep 500
+				RFindClick("Login05", "rLDPlayer mc o50 w30000,50")
 				loopcount++
 			}
 			else if (FoundAchievement == true)

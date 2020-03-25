@@ -22,6 +22,7 @@ Running from source
 * Default background in main menu.
 * Using the uncensored pics via recipe (522/320/404/137).
 * Using old apk before the V2.0410 Optional Client Update for now. https://reddit.com/r/girlsfrontline/comments/e3n7dt/all_the_design_issuesbugs_with_the_new_optional/
+* There is a branch for the new client, but I get idle crashes using it.
 
 THIS SCRIPT IS ONLY TESTED AND MAINTAINED ON WIN8.1 AND WIN10. I may be unable to help you on any other version.
 
@@ -70,7 +71,7 @@ Enter in config.ini under [Variables], PauseHr=22 , and PauseMn=22 to pause at 2
 
 Use ResumeHr and ResumeMn to have the script resume at a specific time. Can be omitted for pause functionality only. When resume is enabled, PCSleep will be ignored and expired timers will automatically be set to pause/resume 24 hours later.
 
-## Making new maps
+## Making new maps:
 
 If you're looking to edit/make your own maps in game you will  need a couple of things first. If you don't already have it, download notepad++ for editing. You will also need WindowSpy, which should be in your AHK folder.
 
@@ -78,18 +79,7 @@ Maps are located in the Constants folder, so right click on it and edit with not
 
 To make a new map, here's how I would start. For this example I will make 4_3E for dragging.
 
-1. Within the RunMap(x) function, you will see if/else statements. Copy any of the else statements and paste it at the end of RunMap. I copied 4_6data, so the end will look like this:
-
-...
-	else if(x == "E3_9_Python")
-	{
-		E3_9_Python()
-	}
-	else if(x == "4_6_data")
-	{
-		4_6_data()
-	}
-}
+1. Within the RunMap(x) function, you will see if/else statements. Copy any of the else statements and paste it at the end of RunMap so that it looks like the others.
 
 Now replace the text 4_6_data with 4_3E.
 
