@@ -455,8 +455,11 @@ GoHomeEvent()
 		sleep 250
 		RFindClick("StartCombat", "rLDPlayer mc o25 w3000,10 a1000,620 n3 sleep200")
 		GuiControl,, NB, Heliport
-		sleep 2000
-		ClickS(868, 46)
+		while(FindClick(A_ScriptDir "\pics\CommandFairy", "rLDPlayer mc o25 Count1 n0") != 1)
+		{
+			ClickS(868, 46)
+			sleep 1000
+		}
 		GuiControl,, NB, Node1
 		sleep 500
 		ClickS(858, 109)
