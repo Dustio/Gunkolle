@@ -55,6 +55,8 @@ IniRead, SortieInterval, config.ini, Variables, SortieInterval, -1 ;900000 for f
 IniRead, WorldV, config.ini, Variables, WorldSwitcher 
 IniRead, AutoBattleResendV, config.ini, Variables, AutoBattleResend
 IniRead, AMDV, config.ini, GPU, AMD
+IniRead, AutoSkillStar, config.ini, Variables, AutoSkillStar
+IniRead, AutoSkillType, config.ini, Variables, AutoSkillType
 
 
 Gui, 1: New
@@ -841,6 +843,8 @@ Sortie2:
 			if (FoundHome == true)
 			{
 				GuiControl,, NB,At home
+
+				AutoSkill()
 			}
 			else if (FoundExpedition == true)
 			{
@@ -1043,6 +1047,8 @@ Sortie2:
 	ExpeditionCheck()
 	
 	Repair()
+
+	AutoSkill()
 
 	;TimeCheck()
 
@@ -1376,6 +1382,7 @@ CombatSimsDataFlag:
 #Include %A_ScriptDir%/Constants/Maps.ahk
 #Include %A_ScriptDir%/Constants/Retirement.ahk
 #Include %A_ScriptDir%/Functions/Mouse.ahk
+#Include %A_ScriptDir%/Constants/AutoSkill.ahk
 
 
 
